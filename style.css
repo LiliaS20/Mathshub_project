@@ -93,7 +93,8 @@ img {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 50px;    
+    padding-top: 70px;
 }
 
 .my_game > * {
@@ -155,6 +156,7 @@ img {
 .posts_block {
     max-width: 600px;
     margin: 20px auto;
+    padding-top: 70px;
 }
 
 .posts_block h3, .posts_block h2 {
