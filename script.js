@@ -408,14 +408,14 @@ btnGame.addEventListener("click", startGameFunc)
 userAnswer.addEventListener("keydown", (e) => {
    if (e.key === "Enter") {
       startGameFunc()
-   } else if(e.key === "Escape") {
+   } else if (e.key === "Escape") {
       userAnswer.blur()
    }
 })
 
 
 userAnswer.addEventListener("keydown", (e) => {
-   if(e.key === "Escape") {
+   if (e.key === "Escape") {
       console.log("45")
    }
 })
@@ -445,7 +445,7 @@ const counterEl = document.querySelector('.choosed_block span')
 
 const choosedState = {
    countElements: 0,
-   setCount (value) {
+   setCount(value) {
       this.countElements += value
       counterEl.innerText = this.countElements
    }
@@ -468,8 +468,77 @@ for (let i = 0; i < choosedEl.length; i++) {
    choosedEl[i].addEventListener('click', eventFunc)
 }
 
-choosedEl[2].removeEventListener("click", eventFunc)
+//choosedEl[2].removeEventListener("click", eventFunc)
+
+
+// const timeIsOver = () => {
+//    alert('Время вышло')
+// }
+
+// setTimeout(timeIsOver, 2000)
 
 
 
+// const alarm = setInterval(() => {
+//    let wantToSleep = confirm('Вы хотите спать?')
+//    if (wantToSleep) {
+//       alert('tic')
+//    } else {
+//       clearInterval(alarm)
+//    }
+// }, 3000)
 
+
+const postsBlock = document.querySelector(".posts_block_container")
+const showPostsBtn = document.querySelector(".posts_block button")
+
+function getPosts() {
+   fetch("https://jsonplaceholder.typicode.com/posts")
+   .then( res => res.json())
+   .then ( data => {
+      for (item of data) {
+         addPost(item.title, item.body)
+      }
+   })
+   .catch( err => console.log(err.message))
+}
+
+function addPost(title, body) {
+   const postTitle = document.createElement("h3")
+   const postBody = document.createElement("span")
+   const postsItem = document.createElement("p")
+   
+   postTitle.innerText = title
+   postBody.innerText = body
+
+   postsItem.append(postTitle, postBody)
+   postsBlock.append(postsItem)
+}
+
+// function createPosts(title, body, userId) {
+//    fetch("https://jsonplaceholder.typicode.com/posts", {
+//       method: 'POST',
+//       body: JSON.stringify({
+//          // title: title,
+//          // body: body,
+//          // userId: userId,
+//          title,
+//          body,
+//          userId,
+//       }),
+//       headers: {
+//          'Content-type': 'application/json; charset=UTF-8',
+//       },
+//    })
+//    .then( res => {
+//       console.log(res)
+//       return res.json()
+//    })
+//    .catch( err => console.log(err.message))
+// }
+
+// createPosts("title", "body", 15)
+
+
+//showPostsBtn.addEventListener("click", getPosts)
+getPosts()

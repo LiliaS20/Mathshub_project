@@ -16,6 +16,8 @@ header{
     background-color: #95efef;
     height: 50px;
     box-shadow: 0 5px 50px #6eb8b8;
+    position: fixed;
+    width: 100%;
 }
 
 nav {
@@ -46,7 +48,8 @@ nav > a:hover {
 main {
     padding-top: 70px;    
     width: 70%;
-    margin: auto;
+    margin: auto;    
+    margin-bottom: 50px;
 }
 
 .about_us {
@@ -147,6 +150,22 @@ img {
 
 .choosed_element {
     border: 3px solid black;
+}
+
+.posts_block {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.posts_block h3, .posts_block h2 {
+    text-align: center;
+ }
+
+.posts_block_container > *{
+    margin: 5px;
+    padding: 10px;
+    background-color: #95efef3d;
+    border-radius: 10px;
 }
 
 footer {
